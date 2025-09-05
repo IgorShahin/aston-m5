@@ -8,9 +8,17 @@ import java.time.Clock;
 import java.util.List;
 import java.util.Set;
 
+
+/**
+ * Демо «Цепочки обязанностей» на регистрации пользователя.
+ * <p>
+ * Шаги: нормализация e-mail -> базовая валидация ->
+ * <p>
+ * проверка пароля -> проверка уникальности -> сборка User. Любой шаг может остановить пайплайн
+ */
 public class ChainDemo {
     public static void main(String[] args) {
-        var taken = Set.of("john.doe@gmail.com"); // уже зарегистрирован
+        var taken = Set.of("john.doe@gmail.com");
         var pipeline = new Pipeline(
                 List.of(
                         new NormalizeEmailHandler(),
