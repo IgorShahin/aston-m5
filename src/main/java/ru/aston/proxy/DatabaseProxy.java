@@ -21,12 +21,12 @@ public class DatabaseProxy implements Database {
         }
 
         if (!"ADMIN".equalsIgnoreCase(userRole)) {
-            log.error("Access denied for role '{}'", userRole);
+            log.error("Access denied for role [{}]", userRole);
             return;
         }
 
         if (realDatabase == null) {
-            log.info("Lazy initialization of RealDatabase for role '{}'", userRole);
+            log.info("Lazy initialization of RealDatabase for role [{}]", userRole);
             realDatabase = new RealDatabase();
         }
 
